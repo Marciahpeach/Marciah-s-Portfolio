@@ -1,0 +1,359 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background: #4b0082;
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: white;
+}
+
+#menu {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  padding-left: 0;
+  margin: 0;
+}
+
+#menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+#menu a:hover {
+  color: #ccc;
+}
+
+.page-section {
+  padding: 3rem 2rem;
+}
+
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  margin: 1rem 1rem 0.5rem;
+  font-size: 1.2rem;
+}
+
+.project-card p {
+  margin: 0 1rem 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.project-card .live-btn {
+  display: block;
+  margin: 0 1rem 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  background: #4b0082;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.project-card .live-btn:hover {
+  background: #360062;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #eee;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #4b0082;
+  outline: none;
+}
+
+form button[type="submit"] {
+  background: #4b0082;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background: #360062;
+}
+
+
+body.dark-mode form {
+  background: #1f1f1f;
+  border: 1px solid #333;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+  background: #2a2a2a;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+body.dark-mode form input:focus,
+body.dark-mode form textarea:focus {
+  border-color: #8a2be2;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  #menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+#caption {
+  margin: 1rem auto;
+  text-align: center;
+  color: #f1f1f1;
+  font-size: 1.2rem;
+  max-width: 90%;
+  padding: 0 1rem;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+}
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+  }
+
+  #caption {
+    font-size: 1rem;
+  }
+
+  .close {
+    font-size: 28px;
+    right: 20px;
+  }
+
+  .project-card h3 {
+    font-size: 1rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+}
+
+#scrollTop {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background: #4b0082;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+#scrollTop:hover {
+  background: #360062;
+}
+
+#darkToggle {
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#darkToggle:hover {
+  background: #333;
+  color: white;
+}
+
+body.dark-mode {
+  background: #121212;
+  color: #e4e4e4;
+}
+
+body.dark-mode header {
+  background: #1e1e2f;
+}
+
+body.dark-mode .project-card {
+  background: #1f1f1f;
+  color: #e4e4e4;
+}
+
+body.dark-mode footer {
+  background: #1a1a1a;
+  color: #aaa;
+}
+
+body.dark-mode #scrollTop,
+body.dark-mode #darkToggle {
+  background: #333;
+  color: #eee;
+}
+
+.live-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.live-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.4s ease;
+}
+
+.live-btn:hover::after {
+  left: 100%;
+}
+
