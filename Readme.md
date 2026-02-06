@@ -53,7 +53,7 @@ Have a project in mind or want to collaborate?
 **📧 Email:** marciahayora@gmail.com  
 **🌐 Portfolio:** [marciah.dev](https://your-live-site.com)  
 **📍 Location:** Kenya  
-
+marciahmachoka@gmail.com
 ---
 
 ## 📝 How to Use / Deploy
